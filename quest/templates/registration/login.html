@@ -1,0 +1,33 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+
+<div class="mb-3">
+<h1>Login</h1>
+</div>
+
+
+<form method='POST'>
+{% csrf_token%}
+{{form.errors}}
+
+<div class="form-group mb-3">
+Email
+<p>{{form.username}}</p>
+</div>
+
+<div class="form-group mb-3">
+Password
+<p>{{form.password}}</p>
+</div>
+
+<div class="form-group mb-3">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+Forgot your password? <a href="/psw-r-f/">click here</a>
+
+
+{% endblock %}

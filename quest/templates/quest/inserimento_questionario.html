@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <form action="" method="post" novalidate>
+  {% csrf_token %}
+  {{testo_domanda}}
+  {{form.questionario}}
+  {{form.domanda}}
+
+  <table border="1">
+  {% for field in form.valutazione %}
+    <tr>
+
+
+        {{ field }}
+
+    </tr>
+  {% endfor %}
+</table>
+<button type="submit" class="btn btn-primary">Submit</button>
+  </body>
+</html>

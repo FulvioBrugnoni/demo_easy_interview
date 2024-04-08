@@ -1,0 +1,72 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class=" mb-3">
+<h1>{{ anagrafica.nome }} {{ anagrafica.cognome }}</h1>
+</div>
+
+<div class="container p-3 my-4 border">
+<div class=" mb-3">
+<h4>{{testo_anagrafica.0.testo}}</h4>
+</div>
+<p>{{testo_anagrafica.3.testo}} : {{ anagrafica.nome }}</p>
+<p>{{testo_anagrafica.4.testo}} : {{ anagrafica.cognome }}</p>
+<p>{{testo_anagrafica.6.testo}} : {{ anagrafica.data }}</p>
+<p>{{testo_anagrafica.5.testo}} : {{ anagrafica.telefono }}</p>
+<p>{{testo_anagrafica.8.testo}} : {{ anagrafica.gender }}</p>
+
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_residenza.0.testo}}</h4>
+  </div>
+
+<p>{{testo_residenza.2.testo}} : {{ residenza.amm1}}</p>
+<p>{{testo_residenza.3.testo}} : {{ residenza.amm2}}</p>
+<p>{{testo_residenza.4.testo}} : {{ residenza.amm3}}</p>
+<p>{{testo_residenza.5.testo}} : {{ residenza.amm4}}</p>
+
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_lingue.0.testo}}</h4>
+  </div>
+
+      {% for i in lingua %}
+          <p>{{ i.lingua }} - {{ i.livello }}</p>
+      {% endfor %}
+
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_esperienza.0.testo}}</h4>
+  </div>
+
+      {% for i in esperienza %}
+          <p>{{ i.settore }} - {{ i.professione }}</p>
+      {% endfor %}
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_studi.0.testo}}</h4>
+  </div>
+
+      {% for i in studio %}
+          <p>{{ i.titolo }} - {{ i.materia }}</p>
+      {% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="mb-3">
+  <h1>{{tab.0.testo}}</h1>
+</div>
+
+<div class="mb-4">
+  <p>{{tab.1.testo}}<br>
+    {{tab.2.testo}}<br>
+    {{tab.3.testo}}<br>
+    {{tab.4.testo}}</p>
+</div>
+
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+<div class="form-group mb-3">
+{{tab.5.testo}}
+<p>{{form.titolo}}</p>
+</div>
+<div class="form-group mb-4">
+{{tab.6.testo}}
+<p>{{form.materia}}</p>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

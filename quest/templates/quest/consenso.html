@@ -1,0 +1,31 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="mb-3">
+<h4>{{tab.0.testo}}</h4>
+</div>
+
+<div class="mb-4">
+<p>{{tab.1.testo}}<br>
+  {{tab.2.testo}}<br>
+  {{tab.3.testo}}<br>
+  {{tab.4.testo}}<br>
+</p>
+</div>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+
+{{form.errors}}
+
+{{form.consenso}}
+
+
+
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% endblock %}

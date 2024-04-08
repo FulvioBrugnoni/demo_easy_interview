@@ -1,0 +1,58 @@
+
+@media (min-width: 380px) {
+
+  p {font-size:0.8rem;}
+  .aTable {
+    width: 250px;
+    border-spacing: 2px;
+}
+.table {
+  font-size:15px !important;
+}
+}
+
+@media (min-width: 768px) {
+  p {font-size:1rem;}
+  .container-right {
+    width: 450px;
+    margin-left: 200px;
+  }
+  .aTable {
+    width: 250px;
+    border-spacing: 2px;
+}
+.table {
+  font-size:20px !important;
+}
+}
+
+@media (min-width: 992px) {
+  p {font-size:1rem;}
+  .container-right {
+    width: 450px;
+    margin-left: 200px;
+  }
+  .aTable {
+    width: 250px;
+    border-spacing: 2px;
+}
+.table {
+  font-size:25px !important;
+}
+}
+
+@media (min-width: 1200px) {
+
+  p {font-size:1rem;}
+  .container-right {
+    width: 450px;
+    margin-left: 200px;
+  }
+  .aTable {
+    width: 300px;
+    border-spacing: 2px;
+}
+.table {
+  font-size:25px !important;
+}
+}

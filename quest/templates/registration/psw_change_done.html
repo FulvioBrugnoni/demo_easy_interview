@@ -1,0 +1,8 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<h1>{{testo.0.testo}}</h1>
+<p>{{testo.1.testo}} <a href="{% url 'login' %}">{{testo.2.testo}}</a>.</p>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="{% static '/style2.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="container p-3 my-3 border border-success">
+
+  <div class="mb-3">
+  <h1>{{tab.0.testo}}</h1>
+  </div>
+
+  <div class="mb-5">
+  <p>{{tab.1.testo}}<br>
+    {{tab.2.testo}} <br>
+    {{tab.3.testo}}<br>
+    {{tab.4.testo}}
+  </p>
+  </div>
+
+    <form action="" method="post" novalidate>
+  {% csrf_token %}
+<div class="mb-1">
+  {{testo_domanda}}
+</div>
+<br>
+
+<div class="d-none">
+  {{form.questionario}}
+  {{form.domanda}}
+</div>
+
+
+<div class="mb-4">
+  <table class="aTable text-center">
+{% for field in form.valutazione %}
+
+    <td>
+
+            {{ field.tag }}
+           {{ field.choice_label}}
+    </td>
+
+
+{% endfor %}
+
+</table>
+</div>
+<div class="mb-3">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+  </body>
+</html>

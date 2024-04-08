@@ -1,0 +1,32 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+<h1>{{title}}</h1>
+{{user}}
+    <form method="post" id="personForm" url="{% url 'ajax_load_lavori' %}">
+  {% csrf_token %}
+{{ form.as_p }}
+<button type="submit" class="btn btn-primary">Submit</button>
+
+<script>
+    $("#id_ambito").change(function () {
+        const url = $("#personForm").attr("url");
+        const ambitoId = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {
+                'ambito_id': ambitoId
+            },
+            success: function (data) {
+                $("#id_professione").html(data);
+
+            }
+        });
+
+    });
+</script>
+
+
+
+{% endblock %}

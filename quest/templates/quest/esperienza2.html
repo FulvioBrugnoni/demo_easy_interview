@@ -1,0 +1,47 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="mb-3">
+  <h1>{{tab.0.testo}}</h1>
+</div>
+
+<div class="mb-4">
+  <p>{{tab.1.testo}}<br>
+    {{tab.2.testo}}</p>
+</div>
+
+<form method="post" id="personForm" data-professioni-url="{% url 'ajax_load_professioni' %}" novalidate>
+  {% csrf_token %}
+  {{form.errors}}
+
+<div class="form-group mb-3">
+  {{tab.3.testo}}
+  <p>{{form.settore}}</p>
+</div>
+
+<div class="form-group mb-4">
+  {{tab.4.testo}}
+  <p>{{form.professione}}</p>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_settore").change(function () {
+        const url = $("#personForm").attr("data-professioni-url");
+        const settoreId = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {'settore_id': settoreId},
+            success: function (data) {$("#id_professione").html(data);}
+        });
+
+    });
+</script>
+{% endblock %}

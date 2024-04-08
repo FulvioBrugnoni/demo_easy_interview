@@ -1,0 +1,55 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+    <h1>Riassunto Candidato</h1>
+
+    <table class="table table-bordered table-hover text-center">
+        <td>{{tab.0.testo}}</td>
+        <td>{{tab.1.testo}}</td>
+        <td>{{tab.2.testo}}</td>
+        {% for i in lingua%}
+
+        <tr>
+            <td>{{i.lingua}}</td>
+            <td>{{i.livello}}</td>
+            <td><a href="18/{{i.id}}">{{tab.2.testo}}</a> </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <p><a href="13/a">{{tab.3.testo}}</a> </p>
+
+    <table class="table table-bordered table-hover text-center">
+        <td>{{tab.4.testo}}</td>
+        <td>{{tab.5.testo}}</td>
+        <td>{{tab.2.testo}}</td>
+        {% for i in esperienza%}
+
+        <tr>
+            <td>{{i.settore}}</td>
+            <td>{{i.professione}}</td>
+            <td><a href="19/{{i.id}}">{{tab.2.testo}}</a> </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <p><a href="esperienza/a">{{tab.6.testo}}</a> </p>
+
+    <table class="table table-bordered table-hover text-center">
+        <td>{{tab.7.testo}}</td>
+        <td>{{tab.8.testo}}</td>
+        <td>{{tab.2.testo}}</td>
+        {% for i in studio%}
+
+        <tr>
+            <td>{{i.titolo}}</td>
+            <td>{{i.materia}}</td>
+            <td><a href="20/{{i.id}}">Cancella Dato</a> </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <p><a href="7/a">{{tab.9.testo}}</a> </p>
+
+{% endblock %}

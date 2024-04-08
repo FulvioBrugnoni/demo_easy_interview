@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dependent Dropdown in Django</title>
+</head>
+<body>
+<h2>Person Form</h2>
+
+<form method="post" >
+
+{% csrf_token %}
+
+    {{tab.0.testo}}
+    <p>     {{form.amm1}} </p>
+    {{tab.1.testo}}
+    <p  id="personForm" data-amm2-url="{% url 'ajax_load_amm2' %}">    {{form.amm2}} </p>
+    {{tab.2.testo}}
+    <p id="personForm2" data-amm3-url="{% url 'ajax_load_amm3' %}">     {{form.amm3}} </p>
+    {{tab.3.testo}}
+    <p  id="personForm3" data-amm4-url="{% url 'ajax_load_amm4' %}">    {{form.amm4}} </p>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_amm1").change(function () {
+        const url = $("#personForm").attr("data-amm2-url");
+        const amm1Id = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {'amm1_id': amm1Id},
+            success: function (data) {
+              console.log(data);
+              $("#id_amm2").html(data);}
+        });
+
+    });
+</script>
+
+<script>
+    $("#id_amm2").change(function () {
+        const url = $("#personForm2").attr("data-amm3-url");
+        const amm2Id = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {'amm2_id': amm2Id},
+            success: function (data) {
+              console.log(data);
+              $("#id_amm3").html(data);}
+        });
+
+    });
+</script>
+
+<script>
+    $("#id_amm3").change(function () {
+        const url = $("#personForm3").attr("data-amm4-url");
+        const amm3Id = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {'amm3_id': amm3Id},
+            success: function (data) {$("#id_amm4").html(data);}
+        });
+
+    });
+</script>
+
+</body>
+</html>

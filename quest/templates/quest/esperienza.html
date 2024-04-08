@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dependent Dropdown in Django</title>
+
+</head>
+<body>
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+
+<div class="container p-3 my-3 border">
+
+<form method="post" id="personForm" data-professioni-url="{% url 'ajax_load_professioni' %}">
+    {% csrf_token %}
+    {{tab.0.testo}}
+    {{form.settore}}
+    {{tab.1.testo}}
+    {{form.professione}}
+    <input type="submit" value="Submit">
+</form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_settore").change(function () {
+        const url = $("#personForm").attr("data-professioni-url");
+        const settoreId = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {'settore_id': settoreId},
+            success: function (data) {$("#id_professione").html(data);}
+        });
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% extends 'quest/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class=" mb-3">
+<h1>{{tab.0.testo}}</h1>
+</div>
+
+
+  <p> {{tab.1.testo}} <a href="psw-c-f/">{{tab.5.testo}}</a> </p>
+
+<div class="container p-3 my-4 border">
+<div class=" mb-3">
+<h4>{{testo_anagrafica.0.testo}}</h4>
+</div>
+<p>{{testo_anagrafica.3.testo}} : {{ anagrafica.nome }}</p>
+<p>{{testo_anagrafica.4.testo}} : {{ anagrafica.cognome }}</p>
+<p>{{testo_anagrafica.6.testo}}: {{ anagrafica.data.day }}-{{ anagrafica.data.month }}-{{ anagrafica.data.year }}</p>
+<p>{{testo_anagrafica.5.testo}} : {{ anagrafica.telefono }}</p>
+<p>{{testo_anagrafica.8.testo}} : {{ anagrafica.gender }}</p>
+<p><a href="per/a">{{tab.2.testo}}</a> </p>
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_residenza.0.testo}}</h4>
+  </div>
+
+<p>{{testo_residenza.2.testo}} : {{ residenza.amm1}}</p>
+<p>{{testo_residenza.3.testo}} : {{ residenza.amm2}}</p>
+<p>{{testo_residenza.4.testo}} : {{ residenza.amm3}}</p>
+<p>{{testo_residenza.5.testo}} : {{ residenza.amm4}}</p>
+<p><a href="res/a">{{tab.2.testo}}</a> </p>
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_lingue.0.testo}}</h4>
+  </div>
+
+      {% for i in lingua %}
+          <p><a href="del-l/{{i.id}}"> {{tab.3.testo}} </a> - {{ i.lingua }} - {{ i.livello }}</p>
+      {% endfor %}
+
+<p><a href="lang/a">{{tab.4.testo}}</a> </p>
+
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_esperienza.0.testo}}</h4>
+  </div>
+
+      {% for i in esperienza %}
+          <p> <a href="del-e/{{i.id}}">{{tab.3.testo}} </a> - {{ i.settore }} - {{ i.professione }}</p>
+      {% endfor %}
+
+<p><a href="exp/a">{{tab.4.testo}}</a> </p>
+
+
+</div>
+
+<div class="container p-3 my-4 border">
+
+  <div class=" mb-3">
+  <h4>{{testo_studi.0.testo}}</h4>
+  </div>
+
+      {% for i in studio %}
+          <p> <a href="del-s/{{i.id}}">{{tab.3.testo}} </a> - {{ i.titolo }} - {{ i.materia }}</p>
+      {% endfor %}
+
+<p><a href="stud/a">{{tab.4.testo}}</a> </p>
+
+</div>
+
+<div class="container p-3 my-4">
+<small> {{tab.6.testo}} <a  href="/pry/" target="_blank" rel="noopener">Privacy Policy.</a></small>
+</div>
+{% endblock %}

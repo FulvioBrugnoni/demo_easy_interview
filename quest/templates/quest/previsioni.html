@@ -1,0 +1,311 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="{% static '/style2.css' %}" rel="stylesheet">
+
+    <style>
+    #ros {display: none;}
+    #ver {display: none;}
+    #gia {display: none;}
+
+    .table-condensed{font-size:12px !important;}
+
+    @media (min-width: 600px) {
+    .table-condensed{
+        font-size:15px !important;
+    }
+}
+  </style>
+
+    <script type="text/javascript">
+    function codeAddress() {
+      var ros = document.getElementById('ros').textContent.length;
+      var x = document.getElementById("ver");
+      var y = document.getElementById("gia");
+      console.log(ros);
+
+    if (ros > 16) {
+      y.style.display = "block";
+    } else {
+      x.style.display = "block";
+    }
+    }
+    window.onload = codeAddress;
+    </script>
+
+  </head>
+  <body>
+
+
+<div id="ros">
+<p>query string: {{request.GET.urlencode}}</p>
+</div>
+
+<div id="ver">
+<div class="container p-3 my-3 border border-success ">
+
+    <h1>{{tab.0.testo}}</h1>
+
+    <div class=" mt-4 mb-4">
+    <p>{{tab.1.testo}}</p>
+    <p>{{tab.2.testo}}<a href="/psw-c-f"> {{tab.3.testo}}</a></p>
+    </div>
+
+    <form method="get" >
+      <div class="border-top border-success ">
+      <div class=" mt-3 mb-4">
+      <h4>{{tab.4.testo}}</h4>
+      </div>
+
+        {{tab.5.testo}}
+        <p>     {{form.amm1}} </p>
+        {{tab.6.testo}}
+        <p  id="personForm" data-amm2-url="{% url 'ajax_load_amm2' %}">    {{form.amm2}} </p>
+        {{tab.7.testo}}
+        <p id="personForm2" data-amm3-url="{% url 'ajax_load_amm3' %}">     {{form.amm3}} </p>
+        {{tab.8.testo}}
+        <p  id="personForm3" data-amm4-url="{% url 'ajax_load_amm4' %}">    {{form.amm4}} </p>
+
+        </div>
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.9.testo}}</h4>
+        </div>
+
+        {{tab.10.testo}}
+        <p>{{form.lingua}}</p>
+        {{tab.11.testo}}
+        <p>{{form.livello}}</p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.12.testo}}</h4>
+        </div>
+
+        {{tab.13.testo}}
+        <p>{{form.titolo}}</p>
+        {{tab.14.testo}}
+        <p>{{form.materia}}</p>
+        </div>
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.15.testo}}</h4>
+        </div>
+        {{tab.16.testo}}
+        <p>{{form.min}}</p>
+        {{tab.17.testo}}
+        <p>{{form.max}}</p>
+        </div>
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.18.testo}}</h4>
+        </div>
+
+        {{tab.19.testo}}
+        <p>{{form.settore}}</p>
+        {{tab.20.testo}}
+        <p  id="personForm4" data-professioni-url="{% url 'ajax_load_professioni' %}">    {{form.professione}} </p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.21.testo}}</h4>
+        </div>
+
+        <p>{{form.gender}}</p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.22.testo}}</h4>
+        </div>
+
+        <p>{{form.application}}</p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.23.testo}}</h4>
+        </div>
+        <p>{{form.email}}</p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <h4>{{tab.24.testo}}</h4>
+        </div>
+        {{tab.25.testo}}
+        <p>{{form.nome}}</p>
+        {{tab.26.testo}}
+        <p>{{form.cognome}}</p>
+        </div>
+
+
+        <div class="border-top border-success ">
+        <div class="mt-4 mb-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </div>
+    </form>
+
+</div>
+</div>
+
+<div id="gia">
+<div class="container p-3 my-3 border-top border-success border-left border-success">
+
+<h1>{{tab.27.testo}}</h1>
+
+  <div class=" mt-4 mb-4">
+  <p><a href="/rec"> {{tab.28.testo}}</a></p>
+
+<p>{{tab.29.testo}}: {{page_obj.paginator.count}}</p>
+<p>{{tab.30.testo}}: {{page_obj.paginator.num_pages}}</p>
+<p>{{tab.31.testo}}: {{page_obj.number}}</p>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {%if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href='?{{request.GET.urlencode}}&page={{page_obj.previous_page_number}}'>Previous page</a></li>
+    {%endif%}
+
+    {% comment %}
+      <li class="page-item"><a class="page-link" href="#">Pagina corrente ({{page_obj.number}})</a></li>
+      {% endcomment %}
+    {%if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href='?{{request.GET.urlencode}}&page={{page_obj.next_page_number}}'> Next page</a></li>
+    {%endif%}
+  </ul>
+</nav>
+</div>
+
+<table class="table table-bordered text-center table-condensed ">
+    <td>{{tab.32.testo}}</td>
+    <td>{{tab.34.testo}}</td>
+    <td>{{tab.35.testo}}</td>
+    <td>{{tab.36.testo}}</td>
+    <td>{{tab.37.testo}}</td>
+    <td>{{tab.38.testo}}</td>
+    <td>{{tab.39.testo}}</td>
+    <td>{{tab.40.testo}}</td>
+
+    {% for i in page_obj%}
+
+    <tr>
+        <td><a href="/can-rec/{{i.candidato.id}}" target="_blank" rel="noopener">Info</a> </td>
+        <td>{{i.candidato.anagrafica_set.first.nome}} </td>
+        <td> {{i.candidato.anagrafica_set.first.cognome}} </td>
+        <td>{{i.candidato.anagrafica_set.first.gender}}</td>
+        <td>{{i.candidato.email}}</td>
+        <td>{{i.candidato.anagrafica_set.first.telefono}}</td>
+        <td>{{i.previsione}}</td>
+        <td>{{i.esito}}</td>
+
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% comment %}
+<ul>
+{%if page_obj.has_previous %}
+<li> <a href= '?{{request.GET.urlencode}}&page={{page_obj.previous_page_number}}'>{{page_obj.previous_page_number}}</a></li>
+
+{%endif%}
+{{page_obj.number}}
+{%if page_obj.has_next %}
+<li> <a href= '?{{request.GET.urlencode}}&page={{page_obj.next_page_number}}'>{{page_obj.next_page_number}}</a></li>
+
+{%endif%}
+</ul>
+{% endcomment %}
+
+</div>
+
+</div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#id_amm1").change(function () {
+            const url = $("#personForm").attr("data-amm2-url");
+            const amm1Id = $(this).val();
+
+            $.ajax({
+                url: url,
+                data: {'amm1_id': amm1Id},
+                success: function (data) {
+                  console.log(data);
+                  $("#id_amm2").html(data);}
+            });
+
+        });
+    </script>
+
+    <script>
+        $("#id_amm2").change(function () {
+            const url = $("#personForm2").attr("data-amm3-url");
+            const amm2Id = $(this).val();
+
+            $.ajax({
+                url: url,
+                data: {'amm2_id': amm2Id},
+                success: function (data) {
+                  console.log(data);
+                  $("#id_amm3").html(data);}
+            });
+
+        });
+    </script>
+
+    <script>
+        $("#id_amm3").change(function () {
+            const url = $("#personForm3").attr("data-amm4-url");
+            const amm3Id = $(this).val();
+
+            $.ajax({
+                url: url,
+                data: {'amm3_id': amm3Id},
+                success: function (data) {$("#id_amm4").html(data);}
+            });
+
+        });
+    </script>
+
+    <script>
+        $("#id_settore").change(function () {
+            const url = $("#personForm4").attr("data-professioni-url");
+            const settoreId = $(this).val();
+            console.log(url)
+            console.log(settoreId)
+
+            $.ajax({
+                url: url,
+                data: {'settore_id': settoreId},
+                success: function (data) {$("#id_professione").html(data);}
+            });
+
+        });
+    </script>
+
+  </body>
+</html>
